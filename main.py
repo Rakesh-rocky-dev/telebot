@@ -47,7 +47,7 @@ updater.dispatcher.add_handler(CommandHandler('meme', meme))
 updater.dispatcher.add_handler(CommandHandler('joke', joke))
 updater.dispatcher.add_handler(CommandHandler('rick_roll', rick_roll))
 
-updater.start_polling()
+#updater.start_polling()
 updater.start_webhook(listen="0.0.0.0",
                           port=int(PORT),
                           url_path="5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY")
