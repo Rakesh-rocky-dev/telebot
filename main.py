@@ -54,6 +54,6 @@ updater.dispatcher.add_handler(CommandHandler('rick_roll', rick_roll))
 
 updater.start_webhook(listen="0.0.0.0",
                           port=int(PORT),
-                          #url_path="5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY")
+                          url_path="5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY")
 updater.bot.setWebhook('https://tele-bot5.herokuapp.com/' + "5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY")
 updater.idle()
