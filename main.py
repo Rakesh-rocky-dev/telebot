@@ -1,13 +1,13 @@
 import praw
 import random
 import pyjokes
-
+import os
 from telegram.ext.updater import Updater
 from telegram.update import Update
 from telegram.ext.callbackcontext import CallbackContext
 from telegram.ext.commandhandler import CommandHandler
 updater = Updater("5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY", use_context=True)
-
+PORT = int(os.environ.get('PORT', 5000))
 def start(update: Update, context: CallbackContext):
     update.message.reply_text("""HELLO!!
 
@@ -48,4 +48,8 @@ updater.dispatcher.add_handler(CommandHandler('joke', joke))
 updater.dispatcher.add_handler(CommandHandler('rick_roll', rick_roll))
 
 updater.start_polling()
+updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path="5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY")
+updater.bot.setWebhook('https://yourherokuappname.herokuapp.com/' + "5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY")
 updater.idle()
