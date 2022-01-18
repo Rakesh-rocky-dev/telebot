@@ -1,5 +1,4 @@
 import praw
-import random
 import pyjokes
 import os
 from telegram.ext.updater import Updater
@@ -21,18 +20,22 @@ def help(update: Update, context: CallbackContext):
     update.message.reply_text("""/meme - to send meme pictures.
 /joke - to send some joke texts.
 /rick_roll - to get Rick roll link.""")
-
+time = 0
 def meme(update: Update, context: CallbackContext):
+    global time
     reddit = praw.Reddit(client_id ="Vm6O9-qztabNwUZXdetuNg", client_secret = "tEo-JMR9IFpi_HBIqri8KmDx_2RJ1g", username = "Mighty-Memer", password = "mightymemer@arks00!", user_agent = "Mightymeme")
     subreddit = reddit.subreddit("memes")
     meme_data_list = []
-    top = subreddit.top(limit = 5)
+    top = subreddit.top(limit = 100)
     for submission in top:
         meme_data_list.append(submission)
-    meme_data = random.choice(meme_data_list)
+    for i in range(len(meme_data_list)):
+        meme_data = meme_data_list[time]
+    #meme_data = random.choice(meme_data_list)
     meme_title = meme_data.title
     meme_url = meme_data.url
     update.message.reply_text(f"{meme_title}:\n{meme_url}")
+    time += 1
 
 def joke(update: Update, context: CallbackContext):
     joke = pyjokes.get_joke()
@@ -48,8 +51,9 @@ updater.dispatcher.add_handler(CommandHandler('joke', joke))
 updater.dispatcher.add_handler(CommandHandler('rick_roll', rick_roll))
 
 #updater.start_polling()
+
 updater.start_webhook(listen="0.0.0.0",
                           port=int(PORT),
-                          url_path="5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY")
-updater.bot.setWebhook('https://yourherokuappname.herokuapp.com/' + "5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY")
+                          #url_path="5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY")
+updater.bot.setWebhook('https://tele-bot5.herokuapp.com/' + "5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY")
 updater.idle()
