@@ -5,7 +5,7 @@ from telegram.ext.updater import Updater
 from telegram.update import Update
 from telegram.ext.callbackcontext import CallbackContext
 from telegram.ext.commandhandler import CommandHandler
-updater = Updater("5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY", use_context=True)
+updater = Updater("API CODE  TELEGRAM", use_context=True)
 PORT = int(os.environ.get('PORT', 5000))
 def start(update: Update, context: CallbackContext):
     update.message.reply_text("""HELLO!!
@@ -23,7 +23,7 @@ def help(update: Update, context: CallbackContext):
 time = 0
 def meme(update: Update, context: CallbackContext):
     global time
-    reddit = praw.Reddit(client_id ="Vm6O9-qztabNwUZXdetuNg", client_secret = "tEo-JMR9IFpi_HBIqri8KmDx_2RJ1g", username = "Mighty-Memer", password = "mightymemer@arks00!", user_agent = "Mightymeme")
+    reddit = praw.Reddit(client_id ="CLIENT ID", client_secret = "CLIENT SECRET", username = "USERNAME", password = "PASSWORD", user_agent = "USER AGENT")
     subreddit = reddit.subreddit("memes")
     meme_data_list = []
     top = subreddit.top(limit = 100)
@@ -54,6 +54,6 @@ updater.dispatcher.add_handler(CommandHandler('rick_roll', rick_roll))
 
 updater.start_webhook(listen="0.0.0.0",
                           port=int(PORT),
-                          url_path="5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY")
-updater.bot.setWebhook('https://tele-bot5.herokuapp.com/' + "5095901879:AAG1RoLuRFsNI8NblqzjZMdO-Str-jogJIY")
+                          url_path="HEROKU USER ID")
+updater.bot.setWebhook('https://tele-bot5.herokuapp.com/' + "HEROKU USER ID")
 updater.idle()
