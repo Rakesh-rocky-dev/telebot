@@ -5,7 +5,7 @@ from telegram.ext.updater import Updater
 from telegram.update import Update
 from telegram.ext.callbackcontext import CallbackContext
 from telegram.ext.commandhandler import CommandHandler
-updater = Updater("API CODE  TELEGRAM", use_context=True)
+updater = Updater("5095901879:AAGfLQetcl1LxoCMfIy1Bah90r-1HE-XzEU", use_context=True)
 PORT = int(os.environ.get('PORT', 5000))
 def start(update: Update, context: CallbackContext):
     update.message.reply_text("""HELLO!!
