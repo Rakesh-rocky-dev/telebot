@@ -50,10 +50,10 @@ updater.dispatcher.add_handler(CommandHandler('meme', meme))
 updater.dispatcher.add_handler(CommandHandler('joke', joke))
 updater.dispatcher.add_handler(CommandHandler('rick_roll', rick_roll))
 
-#updater.start_polling()
+updater.start_polling()
 
-updater.start_webhook(listen="0.0.0.0",
-                          port=int(PORT),
-                          url_path="HEROKU USER ID")
-updater.bot.setWebhook('https://tele-bot5.herokuapp.com/' + "HEROKU USER ID")
+#updater.start_webhook(listen="0.0.0.0",
+#                          port=int(PORT),
+#                          url_path="HEROKU USER ID")
+#updater.bot.setWebhook('https://tele-bot5.herokuapp.com/' + "HEROKU USER ID")
 updater.idle()
